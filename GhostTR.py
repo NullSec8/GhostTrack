@@ -40,6 +40,9 @@ def is_option(func):
 @is_option
 def IP_Track():
     ip = input(f"{Wh}\n Enter IP target : {Gr}")  # INPUT IP ADDRESS
+    if not ip:
+        print(f"{Re}Input cannot be empty")
+        return
     print()
     print(f' {Wh}============= {Gr}SHOW INFORMATION IP ADDRESS {Wh}=============')
     req_api = requests.get(f"http://ipwho.is/{ip}")  # API IPWHOIS.IS
@@ -74,7 +77,7 @@ def IP_Track():
     print(f"{Wh} DST             :{Gr}", ip_data["timezone"]["is_dst"])
     print(f"{Wh} Offset          :{Gr}", ip_data["timezone"]["offset"])
     print(f"{Wh} UTC             :{Gr}", ip_data["timezone"]["utc"])
-    print(f"{Wh} Current Time    :{Gr}", ip_data["timezone"]["current_time"])
+    print(f"{Wh} Current Time    :{Gr}", ip_data["timezone"].get("current_time", "N/A"))
 
 
 @is_option
@@ -122,6 +125,9 @@ def phoneGW():
 def TrackLu():
     try:
         username = input(f"\n {Wh}Enter Username : {Gr}")
+        if not username:
+            print(f"{Re}Input cannot be empty")
+            return
         results = {}
         social_media = [
             {"url": "https://www.facebook.com/{}", "name": "Facebook"},
@@ -145,7 +151,6 @@ def TrackLu():
             {"url": "https://www.stumbleupon.com/stumbler/{}", "name": "StumbleUpon"},
             {"url": "https://www.ello.co/{}", "name": "Ello"},
             {"url": "https://www.producthunt.com/@{}", "name": "Product Hunt"},
-            {"url": "https://www.snapchat.com/add/{}", "name": "Snapchat"},
             {"url": "https://www.telegram.me/{}", "name": "Telegram"},
             {"url": "https://www.weheartit.com/{}", "name": "We Heart It"}
         ]
@@ -259,36 +264,36 @@ def is_in_options(num):
 def option():
     # BANNER TOOLS
     clear()
-    stderr.writelines(f"""
+    stderr.write(f"""
        ________               __      ______                __  
       / ____/ /_  ____  _____/ /_    /_  __/________ ______/ /__
-     / / __/ __ \/ __ \/ ___/ __/_____/ / / ___/ __ `/ ___/ //_/
+     / / __/ __ \\/ __ \\/ ___/ __/_____/ / / ___/ __ `/ ___/ //_/
     / /_/ / / / / /_/ (__  ) /_/_____/ / / /  / /_/ / /__/ ,<   
-    \____/_/ /_/\____/____/\__/     /_/ /_/   \__,_/\___/_/|_| 
+    \\____/_/ /_/\\____/____/\\__/     /_/ /_/   \\__,_/\\___/_/|_| 
 
               {Wh}[ + ]  C O D E   B Y  H U N X  [ + ]
     """)
 
-    stderr.writelines(f"\n\n\n{option_text()}")
+    stderr.write(f"\n\n\n{option_text()}")
 
 
 def run_banner():
     clear()
     time.sleep(1)
-    stderr.writelines(f"""{Wh}
+    stderr.write(f"""{Wh}
          .-.
-       .'   `.          {Wh}--------------------------------
+       .\'   \`.          {Wh}--------------------------------
        :g g   :         {Wh}| {Gr}GHOST - TRACKER - IP ADDRESS {Wh}|
-       : o    `.        {Wh}|       {Gr}@CODE BY HUNXBYTS      {Wh}|
-      :         ``.     {Wh}--------------------------------
-     :             `.
-    :  :         .   `.
-    :   :          ` . `.
-     `.. :            `. ``;
-        `:;             `:'
-           :              `.
-            `.              `.     .
-              `'`'`'`---..,___`;.-'
+       : o    \`.        {Wh}|       {Gr}@CODE BY HUNXBYTS      {Wh}|
+      :         \`\`.     {Wh}--------------------------------
+     :             \`.
+    :  :         .   \`.
+    :   :          \` . \`.
+     \`.. :            \`. \`\`;
+        \`:;             \`:\'
+           :              \`.
+            \`.              \`.     .
+              \`\'\`\'\`\'\`---..,___\`;.-\'
         """)
     time.sleep(0.5)
 
